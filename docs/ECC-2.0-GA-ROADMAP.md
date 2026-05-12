@@ -20,6 +20,19 @@ As of 2026-05-12:
   `agentshield`, `JARVIS`, `ECC-Tools`, and `ECC-website`.
 - `npm run harness:audit -- --format json` reports 70/70 on current `main`.
 - `npm run observability:ready` reports 14/14 readiness on current `main`.
+- `docs/architecture/harness-adapter-compliance.md` maps Claude Code, Codex,
+  OpenCode, Cursor, Gemini, Zed-adjacent, dmux, Orca, Superset, Ghast, and
+  terminal-only support to install paths, verification commands, and risk
+  notes.
+- `npm run harness:adapters -- --check` validates that the public adapter
+  matrix still matches the source data in
+  `scripts/lib/harness-adapter-compliance.js`.
+- `docs/releases/2.0.0-rc.1/publication-readiness.md` gates GitHub release,
+  npm dist-tag, Claude plugin, Codex plugin, OpenCode package, billing, and
+  announcement publication on fresh evidence fields.
+- `docs/legacy-artifact-inventory.md` records that no `_legacy-documents-*`
+  directories exist in the current checkout and classifies
+  `legacy-command-shims/` as an opt-in archive/no-action surface.
 - AgentShield PR #53 reduced two context-rule false positives and closed the
   remaining AgentShield issues.
 - ECC PR #1778 recovered the useful stale #1413 network/homelab architect-agent
@@ -175,13 +188,9 @@ Acceptance:
 
 ## Next Engineering Slices
 
-1. Add the harness adapter compliance matrix and public scorecard onramp.
-2. Add the release/name/plugin publication checklist with evidence fields.
-3. Start AgentShield enterprise policy schema and SARIF implementation in the
+1. Start AgentShield enterprise policy schema and SARIF implementation in the
    AgentShield repo.
-4. Audit ECC Tools billing and check-run surfaces before any native GitHub
+2. Audit ECC Tools billing and check-run surfaces before any native GitHub
    payments announcement.
-5. Inventory `_legacy-documents-*` and map useful artifacts to landed,
-   milestone-tracked, salvage, or archive states.
-6. Build the stale-PR salvage ledger from closed cleanup batches, then port
+3. Build the stale-PR salvage ledger from closed cleanup batches, then port
    useful pieces in small attributed maintainer PRs.
